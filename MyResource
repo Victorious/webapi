@@ -1,0 +1,55 @@
+package com.voit.labb2;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.List;
+
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+
+@Path("myresource")
+public class MyResource {
+	DbConnector db;
+	Connection conn;
+	List <User> userList;
+   String jepp;
+	
+   
+   
+   @GET
+   @Path("/d")
+   @Produces(MediaType.TEXT_PLAIN)
+	public String dataBase() {
+		DbConnector db = new DbConnector();
+		return jepp;
+	}
+    
+    @GET
+    @Path("/database")
+    @Produces(MediaType.APPLICATION_XML)
+    public List<User>getUserObj() throws Exception{
+    	
+    // Connecting to db
+    db = new DbConnector();
+    
+    System.out.println("Test");
+    
+     // retriving objects from getUser method 
+     userList = db.getUser(); // 5 objekt från databas
+     
+     
+     // Returning the list with objects
+     return userList;
+      
+    }
+    
+    @GET
+    @Path("/m")
+    @Produces(MediaType.TEXT_PLAIN)
+    public String getText() {
+    	return ("YOU GOT IT!");
+    }
+}
