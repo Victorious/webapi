@@ -1,0 +1,42 @@
+package com.voit.labb2;
+
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+@XmlRootElement(name="user")
+public class User {
+
+	private int id;
+	private String name;
+	private String profession;
+	
+	public User(int id, String profession, String name ) {
+		this.id = id;
+		this.name = name;
+		this.profession = profession;
+	}
+	public User() {}
+	
+	
+	@XmlElement(name="Id")
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	
+	@XmlElement(name="Name")
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	@XmlElement(name="Profession")
+	public String getProfession() {
+		return profession;
+	}
+	public void setProfession(String profession) {
+		this.profession = profession;
+	}
+}
